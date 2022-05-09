@@ -42,7 +42,7 @@ public class OlympicDAO {
                 results.add(olympic);   //  問い合わせ結果をオブジェクトにしたので、ひとつづつ配列に代入する。
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("多分データベースの接続に失敗しました。");
+            System.out.println("多分データベースの接続に失敗しました。JDBCドライバ（外部プラグイン）がインポートされていない可能性があります。");
             e.printStackTrace();
         } catch (SQLException e) {
             System.out.println("多分SQLで失敗しました。");
