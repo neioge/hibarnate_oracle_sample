@@ -8,6 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         // Olympicクラスにアクセスするため、CountryDAOをインスタンス化
         OlympicDAO dao = new OlympicDAO();
 
@@ -33,7 +34,8 @@ public class Main {
             BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
             line = key.readLine();
         } catch (IOException e) {
-
+            System.out.println("入力を受け取るためのBufferedReaderのオブジェクト化に失敗した可能性があります。");
+            e.fillInStackTrace();
         }
         return line;
     }
