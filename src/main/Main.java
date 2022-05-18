@@ -3,26 +3,22 @@ package main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
+
+import javax.persistence.EntityManager;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Olympicクラスにアクセスするため、CountryDAOをインスタンス化
-        OlympicDAO dao = new OlympicDAO();
+        // EntityManagerのオブジェクトを生成
+        EntityManager em = OlympicDAO.createEntityManager();
 
-        // 検索用キーワードを入力
-        System.out.print("検索キーワードを入力してください > ");
-        int total = Integer.parseInt(keyIn());
+        // 1件取得して名前を表示する
+        Olympic olympic = em.find(Olympic.class, 1);
+        System.out.println(olympic.getTEAM());
 
-        // 入力された値を引数に指定し、検索処理を実行し、Listオブジェクトを取得
-        List<Olympic> list = dao.getCountryFromTotal(total);
-
-        // 取得したListオブジェクトを順番に取り出し、出力
-        for(Olympic item : list){
-            System.out.println(item.getNOCCODE());
-        }
+        // EntityManagerの利用を終了する
+        em.close();
     }
 
     /*
