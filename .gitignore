@@ -20,4 +20,5 @@ Thumbs.db
 .DS_Store
 
 #password
-config
+persistence.xml
+/src/META-INF/persistence.xml
